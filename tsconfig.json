@@ -18,6 +18,12 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "my-duration-lib": [
+        "dist/my-duration-lib/my-duration-lib",
+        "dist/my-duration-lib"
+      ]
+    }
   }
 }

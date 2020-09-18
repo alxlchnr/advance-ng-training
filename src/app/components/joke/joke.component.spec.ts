@@ -37,7 +37,7 @@ describe('JokeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('sets chuck norris joke after button click', () => {
+  it('sets chuck norris quote after button click', () => {
     expect(component.joke).toBeUndefined();
     //component.showJoke();
     jokeServiceMock.fetchJoke.and.returnValue(of({ id: 42, joke: 'Chuck Norris is the reason why Waldo is hiding.' } as Joke))
@@ -45,7 +45,7 @@ describe('JokeComponent', () => {
     button.click();
     fixture.detectChanges();
     expect(component.joke).toEqual('Chuck Norris is the reason why Waldo is hiding.');
-    const jokeTag = <HTMLElement>fixture.debugElement.query(By.css('#joke')).nativeElement
+    const jokeTag = <HTMLElement>fixture.debugElement.query(By.css('#quote')).nativeElement
     expect(jokeTag.innerHTML.trim()).toEqual('Chuck Norris is the reason why Waldo is hiding.');
   })
 });

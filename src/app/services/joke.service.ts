@@ -1,21 +1,23 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {map} from 'rxjs/operators'
-import { Observable } from 'rxjs';
-import { Joke } from '../models/joke';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {delay} from 'rxjs/operators'
+import {Observable, of} from 'rxjs';
+import {Joke} from '../models/joke';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JokeService {
 
-  private readonly apiUrl = 'https://angular-training-backend.herokuapp.com/api/chuck-norris/jokes/random';
+  private readonly apiUrl = '/api/chuck-norris/jokes/random';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
-  fetchJoke(): Observable<Joke>{
-    return this.httpClient.get(this.apiUrl).pipe(
+  fetchJoke(): Observable<Joke> {
+    /*return this.httpClient.get(this.apiUrl).pipe(
       map(resp => <Joke>resp['value'])
-    )
+    )*/
+    return of({joke: 'hutz butzli, hubba bubba'} as Joke).pipe(delay(Math.random() * 3000))
   }
 }

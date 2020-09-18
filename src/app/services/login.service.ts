@@ -14,7 +14,7 @@ export class LoginService {
 
   login(userName: string, password: string): Observable<string> {
     return this.httpClient.post(
-      'https://angular-training-backend.herokuapp.com/api/login',
+      '/api/login',
       { email: userName, password: password },
       {
         responseType: 'text',
